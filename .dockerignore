@@ -1,0 +1,4 @@
+.dockerignore
+!.coveragerc
+!.env
+!.pylintrc
