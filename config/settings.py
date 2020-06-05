@@ -66,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'udem.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Internationalization
