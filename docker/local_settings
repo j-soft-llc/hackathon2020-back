@@ -4,7 +4,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-SECRET_KEY = 'this token'
+SECRET_KEY = '0p*(d2jv&yxf50sjp=tk)t-w6+n)f4sh1hzxk0o3_^)x929*ds'
 
 # STATIC
 # ------------------------------------------------------------------------------
