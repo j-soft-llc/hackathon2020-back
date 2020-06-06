@@ -39,6 +39,10 @@ class Initiative(models.Model):
     owner = models.ForeignKey('users.User', related_name='initiative_owner',
                               on_delete=models.SET_NULL, null=True)
 
+    @property
+    def photo(self):
+        return InitiativePhoto.objects.filter(initiative=self)
+
     # TODO: добавить дополнительные материалы
 
     def __str__(self):
