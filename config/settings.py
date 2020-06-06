@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
 
-    'initiative'
+    'initiative',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -106,3 +107,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+AUTH_USER_MODEL = 'users.User'
