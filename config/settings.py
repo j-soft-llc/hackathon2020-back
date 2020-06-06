@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
+
+    'initiative'
 ]
 
 MIDDLEWARE = [
@@ -97,4 +99,10 @@ SIMPLE_USER = {
 LEADER_USER = {
     'login': 'leader',
     'email': 'leader@youdem.ru'
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }

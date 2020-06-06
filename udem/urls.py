@@ -24,6 +24,7 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    path('leaders/', include('initiative.urls')),
     path('ping/', Ping.as_view()),
     path('auth/<slug:type>/', GetTokenByUser.as_view()),
     path('admin/', admin.site.urls),
