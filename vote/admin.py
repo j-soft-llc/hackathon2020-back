@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import InitiativeVote, LeaderVote
 
-# Register your models here.
+
+admin.site.register(InitiativeVote)
+admin.site.register(LeaderVote)
