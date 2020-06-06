@@ -8,8 +8,6 @@ class User(AbstractUser):
     # TODO: add geo_id
 
     def get_token(self):
-        print()
-        print(type(self))
         # token = Token(user=self)
         # token.save()
         # if hasattr(self, 'auth_token'):
