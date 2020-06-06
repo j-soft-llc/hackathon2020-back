@@ -1,22 +1,23 @@
 from django.db import models
 
 
-class InitiativeVoite(models.Model):
+class InitiativeVote(models.Model):
 
-    initiative = models.ForeignKey('initiative.Initiative', related_name='initiative_voite',
+    initiative = models.ForeignKey('initiative.Initiative',
+                                   related_name='initiative_vote',
                                    on_delete=models.CASCADE)
-    user = models.ForeignKey('users.User', related_name='initiative_voite_user',
+    user = models.ForeignKey('users.User', related_name='initiative_vote_user',
                              on_delete=models.CASCADE)
 
     class Meta:
         unique_together = ['initiative', 'user']
 
 
-class LeaderVoite(models.Model):
+class LeaderVote(models.Model):
 
-    leader = models.ForeignKey('users.User', related_name='leader_voite',
+    leader = models.ForeignKey('users.User', related_name='leader_vote',
                                on_delete=models.CASCADE)
-    user = models.ForeignKey('users.User', related_name='leader_voite_user',
+    user = models.ForeignKey('users.User', related_name='leader_vote_user',
                              on_delete=models.CASCADE)
 
     class Meta:
