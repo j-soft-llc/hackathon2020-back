@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg',
 ]
 
@@ -87,3 +88,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SIMPLE_USER = {
+    'login': 'user',
+    'email': 'user@youdem.ru'
+}
+
+LEADER_USER = {
+    'login': 'leader',
+    'email': 'leader@youdem.ru'
+}
