@@ -33,8 +33,5 @@ class GetTokenByUser(APIView):
         user = User.objects.filter(username=user_data['login']).first()
         if not user:
             user = User.objects.create_user(username=user_data['login'], email=user_data['email'])
-
-        token = Token(user=user)
-        token.save()
         
         return Response({'token': user.get_token()})
