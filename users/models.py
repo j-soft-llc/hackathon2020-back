@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from rest_framework.authtoken.models import Token
-from initiative.models import Geo
+from initiative.models import Geo, Category
 
 
 class User(AbstractUser):
@@ -15,7 +15,12 @@ class User(AbstractUser):
     age = models.PositiveSmallIntegerField('Возраст', blank=True, null=True)
     profession = models.CharField('Проффессия', max_length=200, blank=True, null=True)
     address = models.ForeignKey(Geo, related_name='address_geo', on_delete=models.SET_NULL, blank=True, null=True)
+    district = models.ForeignKey(Geo, related_name='district_geo', on_delete=models.SET_NULL, blank=True, null=True)
+    сompetencies = models.ManyToManyField(Category, related_name='categories')
 
+    @property
+    def is_leader(self):
+        return self.district is not None
     # TODO: add Competencies and geo
 
     def get_token(self):
