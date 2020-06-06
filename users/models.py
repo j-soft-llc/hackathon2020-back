@@ -14,7 +14,7 @@ class User(AbstractUser):
     second_name = models.CharField('Фамилия', max_length=50, blank=True, null=True)
     middle_name = models.CharField('Отчество', max_length=50, blank=True, null=True)
     age = models.PositiveSmallIntegerField('Возраст', blank=True, null=True)
-    profession = models.CharField('Проффессия', max_length=200, blank=True, null=True)
+    profession = models.CharField('Профессия', max_length=200, blank=True, null=True)
     address = models.ForeignKey(Geo, related_name='address_geo', on_delete=models.SET_NULL, blank=True, null=True)
     district = models.ForeignKey(Geo, related_name='district_geo', on_delete=models.SET_NULL, blank=True, null=True)
     сompetencies = models.ManyToManyField(Category, related_name='categories')
@@ -32,9 +32,6 @@ class User(AbstractUser):
         else:
             token = Token(user=self)
             token.save()
-            print()
-            print()
-            print(token)
             result_token = token.key
         # result_token = 'test'
         return result_token

@@ -24,6 +24,7 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    path('leaders/', include('users.urls')),
     path('leaders/', include('initiative.urls')),
     path('leaders/', include('geo.urls')),
     path('ping/', Ping.as_view()),
