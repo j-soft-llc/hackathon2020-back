@@ -119,3 +119,44 @@
         ]
       }
     ]
+    
+
+# Лидеры
+Запрос требует авторизации
+
+**/leaders/** и **/leaders/id/** Возвращают список лидеров и одного лидера соответственно.
+
+    {
+      "сompetencies": [
+        {
+          "id": 1,
+          "name": "Категория1",
+          "vote_count": 83
+        },
+        {
+          "id": 2,
+          "name": "Категория 2",
+          "vote_count": 59
+        },
+        {
+          "id": 3,
+          "name": "Категория 3",
+          "vote_count": 192
+        }
+      ],
+      "location": {
+        "name": "Варавино-Фактория",
+        "lat": "",
+        "long": ""
+      },
+      "avatar_link": "https://sun9-68.userapi.com/lkSq4CcUprbvWx4bAB2LWuHBlC1DaRUEtP8Mtg/FascrZ9jdTw.jpg",
+      "first_name": "Имя",
+      "middle_name": "Отчество",
+      "second_name": "Фамилия",
+      "age": 37,
+      "profession": null,
+      "vk_id": "316000",
+      "id": 31
+    }
+
+**vote_count - фейковое количество голосов**
