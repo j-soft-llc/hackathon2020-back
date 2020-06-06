@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from users.models import User
-from initiative.models import Geo
+from geo.models import Geo
 
 class Command(BaseCommand):
     help = 'Парсинг пользователей из users.csv'

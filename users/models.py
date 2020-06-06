@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from rest_framework.authtoken.models import Token
-from initiative.models import Geo, Category
+from initiative.models import Category
+from geo.models import Geo
 
 
 class User(AbstractUser):
