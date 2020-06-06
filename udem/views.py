@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from users.models import User
 
 
 class Ping(APIView):
@@ -24,19 +24,14 @@ class GetTokenByUser(APIView):
 
     def get(self, request, *args, **kwargs):
         user_type = kwargs.get('type')
-        if user_type == 'user':
-            user_data = settings.SIMPLE_USER
-        else:
-            user_data = settings.LEADER_USER
+        user_types_data = {
+            'user' : settings.SIMPLE_USER,
+            'leader' : settings.LEADER_USER
+        }
+        user_data = user_types_data.get(user_type, settings.LEADER_USER)
 
         user = User.objects.filter(username=user_data['login']).first()
         if not user:
             user = User.objects.create_user(username=user_data['login'], email=user_data['email'])
-
-        if hasattr(user, 'auth_token'):
-            result_token = user.auth_token.key
-        else:
-            token = Token(user=user)
-            token.save()
-            result_token = token.key
-        return Response({'token': result_token})
+        
+        return Response({'token': user.get_token()})
