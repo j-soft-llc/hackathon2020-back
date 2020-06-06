@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
     'initiative',
     'geo',
-    'users'
+    'users',
+    'voite'
 ]
 
 MIDDLEWARE = [
