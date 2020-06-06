@@ -9,4 +9,4 @@ class GeoSerializer(serializers.ModelSerializer):
     class Meta:
         depth = 1
         model = Geo
-        fields = ('id', 'name', 'children')
+        fields = ('id', 'name', 'lat', 'long', 'children')
