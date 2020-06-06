@@ -10,7 +10,10 @@ class Command(BaseCommand):
         # Создаем csv парсер
         csv = CsvParser(settings.BASE_DIR + '/users.csv')
         users_data = list(csv.parse())[1:]
-
+        # Получаем список имеющихся пользователей
+        isset_usernames = [user.username for user in User.objects.all()]
+        # Убираем имеющиеся
+        users_data = [user for user in users_data if user[1] not in isset_usernames]
         # Создаем массив с новыми пользователями
         users = []
         for user_data in users_data:
