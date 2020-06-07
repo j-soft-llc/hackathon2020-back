@@ -160,3 +160,68 @@
     }
 
 **vote_count - фейковое количество голосов**
+
+# Инициативы
+Запрос требует авторизации
+
+**/leaders/initiative/** - Возвращает список инициатив.
+**/leaders/initiative/id/** - Возвращают инициативу с соответствующим id.
+
+**/leaders/user_initiative/user_id=id** - Возвращает инициативы пользователя с соответствующим id (Если не указывать get-параметр, то текущего пользователя).
+
+
+
+
+    [
+        {
+            "id": 1,
+            "initiative_text": "Test",
+            "leader": null,
+            "category": null,
+            "initiative_type": "appeal",
+            "owner": null,
+            "photo": [
+                {
+                    "photo": "http://127.0.0.1:8000/media/uploads/initiative/3e7365d4e13c4f889bc156eb05057bab.jpg"
+                },
+                {
+                    "photo": "http://127.0.0.1:8000/media/uploads/initiative/63a58cb7385d4c9e892dcfe07994f571.jpg"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "initiative_text": "Test 2",
+            "leader": null,
+            "category": null,
+            "initiative_type": "appeal",
+            "owner": 1,
+            "photo": []
+        },
+        {
+            "id": 3,
+            "initiative_text": "Test 3",
+            "leader": null,
+            "category": null,
+            "initiative_type": "appeal",
+            "owner": 1,
+            "photo": [
+                {
+                    "photo": "http://127.0.0.1:8000/media/uploads/initiative/475bd687b27944da93804c002faa8b4d.jpg"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "initiative_text": "Test 4",
+            "leader": 2,
+            "category": 1,
+            "initiative_type": "appeal",
+            "owner": 2,
+            "photo": []
+        }
+    ]
+
+**initiative_type** - Тип инициативы
+1. appeal - Обращение
+2. complaint - Жалоба
