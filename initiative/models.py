@@ -26,7 +26,7 @@ class Initiative(models.Model):
         (APPEAL, 'Обращение'),
         (COMPLAINT, 'Жалоба'),
     ]
-
+    name = models.CharField('Название', max_length=300)
     initiative_text = models.TextField('Текст обращения')
     leader = models.ForeignKey('users.User', related_name='initiative_leader',
                                on_delete=models.SET_NULL, blank=True,

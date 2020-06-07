@@ -56,7 +56,7 @@ class InitiativeCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Initiative
-        fields = ['initiative_text', 'leader', 'category', 'initiative_type']
+        fields = ['name', 'initiative_text', 'leader', 'category', 'initiative_type']
 
 
 class InitiativePhotoSerializer(serializers.ModelSerializer):
@@ -72,5 +72,5 @@ class InitiativeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Initiative
-        fields = ['id', 'initiative_text', 'leader', 'category', 'initiative_type', 'owner', 'photo']
+        fields = ['id', 'name', 'initiative_text', 'leader', 'category', 'initiative_type', 'owner', 'photo']
 
