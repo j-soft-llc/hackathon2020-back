@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from initiative.models import Category, InitiativePhoto, Initiative
+from initiative.models import Category, Initiative, InitiativePhoto
 
 
 class SimpleCategorySerializer(serializers.ModelSerializer):
@@ -27,13 +27,6 @@ class FullCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id', 'name', 'children']
-
-
-class InitiativePhotoCreateSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = InitiativePhoto
-        fields = '__all__'
 
 
 class InitiativeCreateSerializer(serializers.ModelSerializer):
@@ -64,3 +57,20 @@ class InitiativeCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Initiative
         fields = ['initiative_text', 'leader', 'category', 'initiative_type']
+
+
+class InitiativePhotoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = InitiativePhoto
+        fields = ['photo']
+
+
+class InitiativeSerializer(serializers.ModelSerializer):
+
+    photo = InitiativePhotoSerializer(many=True)
+
+    class Meta:
+        model = Initiative
+        fields = ['id', 'initiative_text', 'leader', 'category', 'initiative_type', 'owner', 'photo']
+

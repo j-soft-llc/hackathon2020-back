@@ -4,8 +4,10 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from initiative.models import Category
-from initiative.serializers import FullCategorySerializer, SimpleCategorySerializer, InitiativeCreateSerializer
+from initiative.models import Category, Initiative
+from initiative.serializers import FullCategorySerializer, SimpleCategorySerializer, InitiativeCreateSerializer, \
+    InitiativeSerializer
+from users.models import User
 
 
 class AllCategoriesListView(ListAPIView):
@@ -47,3 +49,27 @@ class CreateInitiative(CreateAPIView):
 
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class InitiativeListView(ListAPIView):
+    queryset = Initiative.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = InitiativeSerializer
+
+
+class InitiativeListViewByUser(ListAPIView):
+    permission_classes = (IsAuthenticated, )
+    serializer_class = InitiativeSerializer
+
+    def get_queryset(self):
+        user_id = self.request.GET.get('user_id')
+        user = self.request.user
+        if user_id:
+            user = User.objects.get(id=user_id)
+        return Initiative.objects.filter(owner=user)
+
+
+class InitiativeDetailView(RetrieveAPIView):
+    queryset = Initiative.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = InitiativeSerializer
